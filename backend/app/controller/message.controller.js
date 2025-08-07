@@ -55,7 +55,6 @@ export const sendFileMessage = async (req, res) => {
         .json({ success: false, message: "No file uploaded" });
     }
 
-    // Check if Cloudinary is configured
     if (!isCloudinaryConfigured()) {
       console.error(
         "Cloudinary not configured. Please set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET in .env file"
@@ -67,7 +66,6 @@ export const sendFileMessage = async (req, res) => {
       });
     }
 
-    // Determine message type based on file mimetype
     let messageType = "document";
     let resourceType = "auto";
 
@@ -91,7 +89,6 @@ export const sendFileMessage = async (req, res) => {
       size: file.size,
     });
 
-    // Upload file to Cloudinary
     const uploadResult = await uploadToCloudinary(
       file.buffer,
       file.originalname,

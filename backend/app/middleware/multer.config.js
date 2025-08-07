@@ -1,19 +1,18 @@
 import multer from 'multer';
 
-// Configure multer for memory storage (we'll upload to Cloudinary directly)
 const storage = multer.memoryStorage();
 
-// File filter to accept images, videos, and documents
+
 const fileFilter = (req, file, cb) => {
-  // Accept images
+
   if (file.mimetype.startsWith('image/')) {
     cb(null, true);
   }
-  // Accept videos
+
   else if (file.mimetype.startsWith('video/')) {
     cb(null, true);
   }
-  // Accept PDFs and documents
+
   else if (
     file.mimetype === 'application/pdf' ||
     file.mimetype === 'application/msword' ||
@@ -27,7 +26,6 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// Configure multer
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter,

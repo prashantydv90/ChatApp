@@ -1,39 +1,3 @@
-  // import express from 'express'
-  // import mongoose from "mongoose";
-  // import cors from "cors";
-  // import dotenv from "dotenv"
-  // import userRouter from './app/routes/user.routes.js';
-  // import cookieParser from 'cookie-parser';
-
-  // const app = express();
-
-  // dotenv.config();
-
-  // app.use(express.json());
-  // app.use(express.urlencoded({ extended: true }));
-
-  // const corsOptions = {
-  //     origin:process.env.URL,
-  //     credentials: true
-  // }
-  // app.use(cors(corsOptions));
-  // app.use(cookieParser());
-
-  // app.use('/api',userRouter)
-
-  // mongoose.connect(process.env.DBURL)
-  //   .then(() => {
-  //     console.log("Connected to MongoDB");
-  //     app.listen(process.env.PORT || 1112, () => {
-  //       console.log("Server is running on port", process.env.PORT || 1112);
-  //     });
-  //   })
-  //   .catch((err) => {
-  //     console.error("MongoDB connection error:", err);
-  //   });
-
-
-
 
   import express from "express";
   import mongoose from "mongoose";
@@ -59,7 +23,6 @@
   app.use(cookieParser());
   app.use(cors({ origin: process.env.URL || "http://localhost:5173", credentials: true }));
 
-  // Connect to MongoDB with fallback
   const mongoUrl = process.env.DBURL || "mongodb://localhost:27017/chatapp";
   mongoose.connect(mongoUrl)
     .then(() => console.log("MongoDB Connected"))

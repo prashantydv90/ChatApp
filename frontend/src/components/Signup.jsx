@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { toast } from 'react-toastify';
 
 export const Signup = () => {
   let navigate=useNavigate();
@@ -15,6 +16,7 @@ export const Signup = () => {
   const handleSignup = async () => {
     try {
       const res = await axios.post('https://chatapp-rtvj.onrender.com/api/signup', form);
+      toast.success('Account Created Successfully')
       navigate('/user/login')
     } catch (err) {
       alert(err.response?.data?.message || 'Signup failed');
