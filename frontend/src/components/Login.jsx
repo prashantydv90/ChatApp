@@ -11,7 +11,7 @@ export const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-      await axios.post('http://localhost:3333/api/login',{ email, password },{withCredentials:true}).then((res)=>{
+      await axios.post('https://chatapp-rtvj.onrender.com/api/login',{ email, password },{withCredentials:true}).then((res)=>{
         // setUser(res.data.user)
         navigate('/chat');
         toast.success('Logged in Successfully')

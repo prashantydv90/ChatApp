@@ -1,3 +1,3 @@
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3333", { withCredentials: true });
+const socket = io("https://chatapp-rtvj.onrender.com", { withCredentials: true });
 export default socket;

@@ -13,7 +13,7 @@ export const Sidebar = ({ setSelectedUser, setCurrentUser ,currentUser}) => {
     const [users, setUsers] = useState([]);
     const [menuOpen, setMenuOpen] = useState(false);
     useEffect(() => {
-        axios.get('http://localhost:3333/api/getalluser', { withCredentials: true }).then((res) => {
+        axios.get('https://chatapp-rtvj.onrender.com/api/getalluser', { withCredentials: true }).then((res) => {
             setUsers(res.data.users);
             setCurrentUser(res.data.loggedUser);
         }).catch((err) => {
@@ -115,11 +115,11 @@ const Menu = ({setCurrentUser,currentUser,setMenuOpen}) => {
                 onClick={async () => {
                     if (window.confirm("Are you sure you want to delete your profile? This will delete all your chats and media permanently.")) {
                         try {
-                            await axios.delete(`http://localhost:3333/api/deleteuser/${currentUser._id}`, { withCredentials: true });
+                            await axios.delete(`https://chatapp-rtvj.onrender.com/api/deleteuser/${currentUser._id}`, { withCredentials: true });
                             toast.success("Profile deleted successfully");
                             setMenuOpen(false);
                             // Log out and redirect
-                            await axios.post("http://localhost:3333/api/logout", {}, { withCredentials: true });
+                            await axios.post("https://chatapp-rtvj.onrender.com/api/logout", {}, { withCredentials: true });
                             navigate("/user/login");
                         } catch (err) {
                             toast.error("Failed to delete profile");
@@ -134,7 +134,7 @@ const Menu = ({setCurrentUser,currentUser,setMenuOpen}) => {
                 className="w-full px-4 py-2 text-left hover:bg-gray-100"
                 onClick={() => {
                     // Handle logout
-                    axios.post("http://localhost:3333/api/logout", {}, { withCredentials: true })
+                    axios.post("https://chatapp-rtvj.onrender.com/api/logout", {}, { withCredentials: true })
                         .then(() => {toast.success("Logged out successfully");navigate("/user/login")})
                         .catch((err) => console.error("Logout failed", err));
                     setMenuOpen(false);

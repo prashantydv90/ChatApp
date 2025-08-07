@@ -14,7 +14,7 @@ export const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post('http://localhost:3333/api/signup', form);
+      const res = await axios.post('https://chatapp-rtvj.onrender.com/api/signup', form);
       navigate('/user/login')
     } catch (err) {
       alert(err.response?.data?.message || 'Signup failed');

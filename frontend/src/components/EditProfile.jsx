@@ -30,7 +30,7 @@ export const EditProfile = ({ currentUser, setShowEditProfile, setCurrentUser })
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:3333/api/updateprofile/${currentUser._id}`,
+        `https://chatapp-rtvj.onrender.com/api/updateprofile/${currentUser._id}`,
         formData,
         { withCredentials: true }
       );

@@ -12,7 +12,7 @@
 
 //   useEffect(() => {
 //     if (userId) {
-//       axios.get(`http://localhost:3333/api/getuser/${userId}`, { withCredentials: true })
+//       axios.get(`https://chatapp-rtvj.onrender.com/api/getuser/${userId}`, { withCredentials: true })
 //         .then(res => {
 //           setSelectedUser(res.data.user);
 //         })
@@ -57,7 +57,7 @@ export const ChatApp = () => {
 
   useEffect(() => {
     if (userId) {
-      axios.get(`http://localhost:3333/api/getuser/${userId}`, { withCredentials: true })
+      axios.get(`https://chatapp-rtvj.onrender.com/api/getuser/${userId}`, { withCredentials: true })
         .then(res => {
           setSelectedUser(res.data.user);
         })

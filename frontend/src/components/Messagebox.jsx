@@ -17,7 +17,7 @@ export const Messagebox = ({ selectedUser, currentUser }) => {
 
         socket.emit("join", currentUser._id);
 
-        axios.get(`http://localhost:3333/api/messages/get/${currentUser._id}/${selectedUser._id}`)
+        axios.get(`https://chatapp-rtvj.onrender.com/api/messages/get/${currentUser._id}/${selectedUser._id}`)
             .then(res => setMessages(res.data.messages))
             .catch(err => console.error(err));
 
@@ -39,7 +39,7 @@ export const Messagebox = ({ selectedUser, currentUser }) => {
             createdAt: new Date().toISOString(),
         };
 
-        await axios.post("http://localhost:3333/api/messages/send", messageData);
+        await axios.post("https://chatapp-rtvj.onrender.com/api/messages/send", messageData);
         socket.emit("send-message", { to: selectedUser._id, messageData });
 
         setMessages(prev => [...prev, messageData]);
@@ -56,7 +56,7 @@ export const Messagebox = ({ selectedUser, currentUser }) => {
             formData.append('senderId', currentUser._id);
             formData.append('receiverId', selectedUser._id);
 
-            const response = await axios.post("http://localhost:3333/api/messages/send-file", formData, {
+            const response = await axios.post("https://chatapp-rtvj.onrender.com/api/messages/send-file", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
