@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import { Message } from "../models/message.model.js";
 import { Conversation } from "../models/conversation.model.js";
 import { deleteFromCloudinary } from "../utils/cloudinary.js";
+import bcrypt from "bcrypt"
 
 export const register = async (req, res) => {
   try {
